@@ -2,9 +2,12 @@
 
 ![Banner](/banner.png)
 
+![BadgeVue](https://img.shields.io/badge/Language-Vue.JS-brightgreen) 
+![BadgeVue2](https://img.shields.io/badge/Work-In%20Progress-yellow)
+
 Creating Games using Vue.JS
 
-Game #1: Piano Player
+**Game #1:** Piano Player
 
 ## Project setup
 ```
