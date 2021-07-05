@@ -1,6 +1,7 @@
 # Games
 
 Creating Games using Vue.JS
+
 Game #1: Piano Player
 
 ## Project setup
