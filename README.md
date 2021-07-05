@@ -1,5 +1,7 @@
 # Games
 
+![Banner](/banner.png)
+
 Creating Games using Vue.JS
 
 Game #1: Piano Player
