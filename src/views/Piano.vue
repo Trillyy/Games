@@ -28,7 +28,7 @@
   import pianotile from '../components/piano-tile'
 
   export default {
-    name: 'Home',
+    name: 'Piano',
 
     data: () => ({
         lastpressed : [],

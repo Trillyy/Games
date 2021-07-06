@@ -1,19 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Piano from '../views/Piano.vue'
+import Card from '../views/Card.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/piano',
+    name: 'Piano',
+    component: Piano, 
+    meta: { title: 'Piano' }
+  },
+  {
+    path: '/card',
+    name: 'Card',
+    component: Card, 
+    meta: { title: 'Card' }
   }
 ]
 
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  routes: routes
 })
 
 export default router

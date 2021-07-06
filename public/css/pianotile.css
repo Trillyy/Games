@@ -8,6 +8,8 @@
     background: white;
     border-bottom-left-radius: 8%;
     border-bottom-right-radius: 8%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .note {

@@ -74,9 +74,9 @@ export default {
         },
 
         changeColor: function() {
-            this.$data.clicked = 'pianotile active'
+            this.clicked = 'pianotile active'
             setTimeout(() => {
-                this.$data.clicked = 'pianotile'
+                this.clicked = 'pianotile'
             }, 500);
         }
     }
