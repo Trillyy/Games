@@ -2,7 +2,7 @@
   <div class="piano">
     <div class="details">
         <b>Cronologia suoni (ultimi 15): </b>
-        <input type="text" class="form-control-inline" size="75" :value="render(lastpressed)">
+        <input type="text" class="form-control-inline" readonly size="75" :value="render(lastpressed)">
       </div>
     <div class="piano-back">
       <pianotile note = "DO" blacktile = "right" @tileChange = "tileChanged($event)"/>
@@ -29,6 +29,10 @@
 
   export default {
     name: 'Piano',
+
+    created () {
+            document.title = "Piano";
+    },
 
     data: () => ({
         lastpressed : [],

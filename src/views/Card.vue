@@ -1,14 +1,14 @@
 <template>
   <div class="card-game">
-    <card :value="value1" id="1" @draw="draw(drawn)"></card>
+    <card :value="value1" id="1"></card>
     <div class="scorepad">
       <p class="winner">{{winner}}</p>
       <scoreboard :score1="score1" :score2="score2" />
-      <button class="btn btn-success" @click="deckdraw">Go</button>
+      <button id="gobutton" class="btn btn-success" @click="deckdraw">Go</button>
       <button class="btn btn-warning mt-2" @click="reset">Reset</button>
       <label class="tries">{{tries}} more tries...</label>
     </div>
-    <card :value="value2" id="2" @draw="draw(drawn)"></card>
+    <card :value="value2" id="2"></card>
   </div>
 </template>
 
@@ -18,6 +18,10 @@
 
   export default {
     name: 'Card',
+
+    created () {
+            document.title = "Card";
+    },
 
     data: () => ({
         card1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -32,8 +36,10 @@
 
     methods : {
       deckdraw: function() {
+        let gobutton = document.querySelector("#gobutton")
         if(this.tries > 0)
         {
+          
           this.tries--
           this.shuffle(this.card1)
           this.shuffle(this.card2)
@@ -45,6 +51,8 @@
             if(this.value1 < this.value2)
               this.score2++;
           if(this.tries == 0)
+          {
+            gobutton.classList.add('disabled')
             if(this.score1 > this.score2)
               this.winner = 'PLAYER 1 WON!'
             else
@@ -52,10 +60,15 @@
                 this.winner = 'DRAW'
               else
                 this.winner = 'PLAYER 2 WON!'
+          }
+          else
+            gobutton.classList.remove('disabled')
         }
       },
 
       reset: function() {
+        let gobutton = document.querySelector("#gobutton")
+        gobutton.classList.remove('disabled')
         this.card1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         this.card2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         this.tries = 10

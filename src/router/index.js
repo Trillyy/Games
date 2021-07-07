@@ -9,14 +9,12 @@ const routes = [
   {
     path: '/piano',
     name: 'Piano',
-    component: Piano, 
-    meta: { title: 'Piano' }
+    component: Piano
   },
   {
     path: '/card',
     name: 'Card',
-    component: Card, 
-    meta: { title: 'Card' }
+    component: Card
   }
 ]
 
