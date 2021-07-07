@@ -13,12 +13,12 @@ export default {
     }),
     props : {
         value : {
-            type: String,
-            default: '0'
+            type: Number,
+            default: 0
         },
         id : {
             type: String,
-            default: '0'
+            default: "0"
         }
     },
 

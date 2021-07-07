@@ -7,9 +7,13 @@
 
 Creating Games using Vue.JS
 
-**Game #1:** Piano Player
+# Game #1: Piano Player
 
-**Game #2:** Card
+**Description:** A simple piano player to learn the musical notes or to simple lose a bit of time, while listening to your own music
+
+# Game #2: Card
+
+**Description:** A simple card game, you only need luck to win. Every player has 10 card, from 1 to 10. Every turn, a card will be randomly picked from the deck. The player with the highest card win the turn, if the cards are equal the score remain the same. The player who has the highest score at the end of the cards win the game!
 
 ## Project setup
 ```

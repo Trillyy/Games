@@ -8,8 +8,6 @@
     background: white;
     border-bottom-left-radius: 8%;
     border-bottom-right-radius: 8%;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 .note {
@@ -20,9 +18,10 @@
 .left-black {
     position: absolute;
     top: 0;
+    left: 0;
     height: 150px;
-    width: 18px;
-    border: 1px solid black;
+    width: 17px;
+    border: 2px solid black;
     background: black;
 }
 
@@ -31,8 +30,8 @@
     top: 0;
     right: 0;
     height: 150px;
-    width: 18px;
-    border: 1px solid black;
+    width: 17px;
+    border: 2px solid black;
     background: black;
 }
 

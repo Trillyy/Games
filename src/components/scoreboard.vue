@@ -1,5 +1,9 @@
 <template>
-  <div class="scoreboard"> {{ value }} </div>
+    <div class="scoreboard">
+        <div class="score">{{ score1 }}</div>
+        <div class="hyphen">-</div>
+        <div class="score">{{ score2 }}</div>
+    </div>
 </template>
 
 <script>
@@ -12,10 +16,14 @@ export default {
 
     }),
     props : {
-        value : {
-            type: String,
-            default: 'NaN'
+        score1 : {
+            type: Number,
+            default: 0
         },
+        score2 : {
+            type: Number,
+            default: 0
+        }
     },
 
     methods : {
