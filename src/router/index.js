@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Piano from '../views/Piano.vue'
 import Card from '../views/Card.vue'
+import Minesweeper from '../views/MineSweeper.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/card',
     name: 'Card',
     component: Card
+  },
+  {
+    path: '/minesweeper',
+    name: 'Minesweeper',
+    component: Minesweeper
   }
 ]
 

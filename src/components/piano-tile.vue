@@ -37,7 +37,7 @@ export default {
     methods : {
         playSound: function() {
             this.changeColor()
-            var audio = new Audio('soundmp3/' + this.$props.note + '.mp3');
+            let audio = new Audio(require('@/assets/soundmp3/' + this.$props.note + '.mp3'));
             audio.type = 'audio/mp3'
             audio.play().then(() => {
                 console.log('Playing ' + this.$props.note + '.mp3')

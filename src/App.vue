@@ -38,6 +38,15 @@
             />
             Card
           </a>
+          <a class="navbar-brand mt-2 mt-lg-0" href="/minesweeper">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Gnome_Mines.png"
+              height="35"
+              alt=""
+              loading="lazy"
+            />
+            Minesweeper
+          </a>
           <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -54,7 +63,7 @@
     <v-main>
       <router-view/>
     </v-main>
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center text-lg-start bg-light text-muted fixed bottom-0">
       <!-- Copyright -->
       <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2021 Copyright:
