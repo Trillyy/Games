@@ -59,3 +59,40 @@
     },
   }
 </script>
+<style scoped>
+.piano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 86vh;
+    border-radius: 20%;
+}
+
+.piano-back {
+    padding: 25px;
+    border: 1px solid black;
+    background: red;
+    border-radius: 10px;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.note {
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.details {
+    background: white;
+    border: 1px solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+</style>

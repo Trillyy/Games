@@ -1,7 +1,7 @@
 <template>
     <div>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light z-10">
       <!-- Container wrapper -->
       <div class="container-fluid">
         <!-- Toggle button -->
@@ -84,3 +84,17 @@ export default {
   }),
 };
 </script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: rgb(0,36,16);
+    height: 100vh;
+background: radial-gradient(circle, rgba(0,36,16,1) 0%, rgba(26,121,9,1) 29%, rgba(255,0,0,1) 78%);
+}
+</style>

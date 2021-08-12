@@ -1,7 +1,23 @@
 <template>
 <div class="minesweeper-wrapper">
     <div class="minesweeper">
-        <minecell v-model="cell.value" v-for="cell in cells" :key="cell.id" class="mcell" @restart="restart" @show="show"/>
+        <minecell v-model="cell.value" v-for="cell in cells" :key="cell.id" :id="cell.id"
+            :class="{minecell: true, blown: cell.isBlown, hidden: cell.isHidden}"
+            @restart="restart" 
+            @show="show"
+            @update-score="updatescore"
+            @hidden="showEl"
+            @blown="blowEl"/>
+    </div>
+    <div class="scoreboard">
+        <div class="score">
+            <div class="number">{{score}}</div>
+            <span>Points</span>
+        </div>
+        <div class="message">{{message}}</div>
+        <div class="restart">
+            <button class="btn btn-info" @click="restart">Restart</button>
+        </div>
     </div>
 </div>
 </template>
@@ -17,7 +33,9 @@ export default {
     },
 
     data: () => ({
-        cells: []       
+        cells: [],
+        score: 0,
+        message: '',   
     }),
 
     mounted() {
@@ -30,12 +48,14 @@ export default {
                 this.cells.push({
                     id: i+1,
                     value: '',
+                    isHidden: true,
+                    isBlown: false,
                 })
             }
         },
         generateBombs: function () {
             this.cells.forEach(el => {
-                if(Math.floor(Math.random() * 100) + 1 > 80)
+                if(Math.floor(Math.random() * 100) + 1 > 90)
                     el.value = 'B'
             })
         },
@@ -58,18 +78,64 @@ export default {
             })
         },
         restart: function() {
+            this.hide()
+            this.score = 0
             this.cells = []
             this.generateCells();
             this.generateBombs();
             this.generateNumbers();
-            console.log("restarted")
+            this.message = ''
         },
 
         show: function() {
-            let elements = document.getElementsByClassName("mcell")
+            let elements = document.getElementsByClassName("minecell")
             elements.forEach(el => {
-                console.log(el.classList.remove("hidden"))
+                el.classList.remove("hidden")
             })
+        },
+
+        hide: function() {
+            let elements = document.getElementsByClassName("minecell")
+            elements.forEach(el => {
+                el.classList.add("hidden")
+                el.classList.remove("blown")
+            })
+        },
+
+        updatescore: function(id, value) {
+            if(this.cells[id-1].isHidden)
+                this.score += parseInt(value)
+        },
+
+        showEl: function(v) {
+            this.cells[v-1].isHidden = false;
+            if(this.won())
+            {
+                this.show()
+                this.message = "YOU WON!"
+            }
+        },
+
+        blowEl: function(v) {
+            this.cells[v-1].isBlown = true;
+            this.message = "YOU LOSE!"
+        },
+
+        won: function() {
+            let missingCells = this.cells.filter(function (el) {
+                return el.isHidden == true && el.value !== 'B'}
+            )
+
+            let bomb = this.cells.filter(function (el) {
+                return el.value === 'B'}
+            )
+            console.log(bomb)
+
+            console.log(missingCells)
+            if(missingCells.length == 0)
+                return true;
+            else
+                return false;
         }
     },
 
@@ -93,9 +159,49 @@ export default {
 }
 
 .minesweeper-wrapper {
-    height: 86vh;
+    min-height: 86vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.scoreboard {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.restart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.number {
+    margin-left: 10px;
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 40px;
 }
 </style>

@@ -104,3 +104,24 @@
     },
   }
 </script>
+<style scoped>
+.card-game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 86vh;
+}
+
+.scorepad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.winner {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+</style>

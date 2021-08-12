@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import '../../public/css/card.css';
 
 export default {
     name: 'card',
@@ -27,3 +26,28 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.card {
+    width: 140px;
+    height: 200px;
+    border: 1px solid;
+    text-align: center;
+    font-size: 50px;
+    margin: 50px;
+}
+
+.insidecard {
+    margin: 10px 10px 10px 10px;
+    width: auto;
+    height: 100%;
+    border: 1px solid black;
+    position: relative;
+}
+
+.cardvalue {
+    position: absolute;
+    top: -20px;
+    left: 0;
+}
+</style>

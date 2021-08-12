@@ -1,6 +1,6 @@
 <template>
-<div :class="{minecell: true, blown: isBlown, hidden: isHidden}" @click="handleClick">
-    <v-img :src="require('@/assets/' + image)" :class="{img: true}" />
+<div @click="handleClick">
+    <v-img :src="require('@/assets/' + image)" class="img" />
 </div>
 </template>
 
@@ -10,8 +10,6 @@ export default {
     name: 'minecell',
 
     data: () => ({
-        isHidden: true,
-        isBlown: false,
     }),
 
     props : {
@@ -25,6 +23,10 @@ export default {
                 })
                 return found
             }*/
+        },
+        id: {
+            type: Number,
+            default: 0,
         }
     },
 
@@ -42,14 +44,17 @@ export default {
 
     methods : {
         handleClick: function() {
-            this.isHidden = false
             console.log(this.value)
             if(this.value === 'B')
             {
-                this.isBlown = true;
-                alert("You lost")
-                
+                this.$emit("blown", this.id)
+                this.$emit("hidden", this.id)                
                 this.$emit("show")
+            }
+            else
+            {
+                this.$emit("update-score", this.id, this.value)
+                this.$emit("hidden", this.id)
             }
         }
     }
@@ -68,6 +73,7 @@ export default {
     outline: 2px solid black;
     outline-offset: -3px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .img {

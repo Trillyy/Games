@@ -15,6 +15,10 @@ Creating Games using Vue.JS
 
 **Description:** A simple card game, you only need luck to win. Every player has 10 card, from 1 to 10. Every turn, a card will be randomly picked from the deck. The player with the highest card win the turn, if the cards are equal the score remain the same. The player who has the highest score at the end of the cards win the game!
 
+# Game #3: Minesweeper
+
+**Description:** A grand classic, a game created from Microsoft for the early versions of windows, you need to avoid the bomb and collect all the points!
+
 ## Project setup
 ```
 npm install
